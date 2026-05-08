@@ -2,51 +2,51 @@ graph TD
     %% Style definitions
     classDef founder fill:#f9f,stroke:#333,stroke-width:4px;
     classDef hub fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef target fill:#fff,stroke:#333,stroke-width:3px;
     classDef flavor fill:#fce4ec,stroke:#d81b60,stroke-width:3px;
+    classDef savory fill:#fff9c4,stroke:#fbc02d,stroke-width:3px;
 
-    %% Global Founders
-    GSC["GSC"]:::founder
+    %% Key Hubs & Founders
     Zkit["Zkittlez"]:::founder
-    OG["OG Kush"]:::founder
-    ChemD["Chemdog D"]:::founder
+    GSC["GSC (Forum Cut)"]:::founder
+    Dosi["Dosidos"]:::hub
 
-    %% 1. STRAWMELON (The Grateful Seeds)
-    SBC24["Strawberry & Cream #24"] --> SMelon["STRAWMELON"]:::flavor
-    FMelon["Fresca Melon (La Chanvrière)"] --> SMelon
-    
-    %% Fresca Melon Context
-    Zkit --> FMelon
-    WMelonZ["Watermelon Zkittlez"] --> FMelon
+    %% 1. STRAWMELON (Fruit & Candy Path)
+    Zkit -->|via Watermelon Z| FMelon["Fresca Melon"]:::flavor
+    SBC24["Strawberries & Cream #24"] -->|Mother| SMelon["STRAWMELON"]:::flavor
+    FMelon -->|Father| SMelon
 
-    %% 2. OFFENSIVE SELECTIONS - DELICIOSA
-    RB20["Rainbow Belts #20 (Archive)"] --> Deliciosa["DELICIOSA"]:::flavor
-    PLady["Pink Lady #27"] --> Deliciosa
-    
-    %% Pink Lady & Apples/Bananas Context
-    ABananas["Apples & Bananas (Compound)"] --> PLady
-    Sourdough["Sourdough #1"] --> PLady
-    Zkit --> RB20
-    Moonbow["Moonbow (Dosidos x Zkit)"] --> RB20
+    %% 2. DELICIOSA (The Z-Candy Path)
+    Zkit -->|Crossed with Dosidos| RB20["Rainbow Belts #20"]:::flavor
+    Dosi -->|Via Moonbow| RB20
+    ABananas["Apples & Bananas"] -->|Via Pink Lady| Deliciosa["DELICIOSA"]:::flavor
+    RB20 -->|Archive's Cut| Deliciosa
 
-    %% 3. ANIMAL BUTTER (3rd Coast)
-    AFace["Animal Face"] --> AButter["ANIMAL BUTTER"]:::target
-    PBBreath["Peanut Butter Breath"] --> AButter
-    
-    %% PBB Context
-    Dosidos["Dosidos"] --> PBBreath
-    MendoB["Mendo Breath"] --> PBBreath
+    %% 3. ANIMAL BUTTER (The Gas & Nutty Path)
+    GSC -->|Via Dosidos| Dosi
+    Dosi --> PBB["Peanut Butter Breath"]:::savory
+    MendoB["Mendo Breath"] --> PBB
+    AFace["Animal Face"] -->|Mother| AButter["ANIMAL BUTTER"]:::savory
+    PBB -->|Father| AButter
 
-    %% 4. MIRKA (Hoku Seed Co)
-    PBBF2["Peanut Butter Breath F2"] --> Mirka["MIRKA"]:::target
-    FYeti["Fat Yeti"] --> Mirka
-    
-    %% Fat Yeti Context
-    Fatso["Fatso (GMO x Legend OG)"] --> FYeti
-    YetiOG["Yeti OG (Loompa's Headband Bx)"] --> FYeti
-    ChemC["GMO (Chem Cookies)"] -.->|Ancestor| Fatso
+    %% 4. MIRKA (The Heavy Hitter Path)
+    PBB -->|F2 Selection| Mirka["MIRKA"]:::savory
+    Fatso["Fatso (GMO x Legend OG)"] -->|Via Fat Yeti| Mirka
+    YetiOG["Yeti OG"] -->|Via Fat Yeti| Mirka
 
-    %% Linkages
-    Dosidos -.->|Common Ancestor| RB20
-    Dosidos -.->|Common Ancestor| PBBreath
+    %% Grouping for Clarity
+    subgraph Candy_Unicorns
+        SMelon
+        Deliciosa
+    end
 
+    subgraph Savory_Butter_Funk
+        AButter
+        Mirka
+    end
+
+    %% Legend
+    subgraph Legend
+        direction LR
+        L1[Pink = Candy/Z-Ancestry]
+        L2[Yellow = Nutty/Buttery Ancestry]
+    end
